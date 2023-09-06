@@ -72,14 +72,15 @@ else
          function s:Make_Backup_Dir (Path)
 	    if strlen (finddir (a:Path)) == 0
 	       call mkdir (a:Path, "p", 0770)
-		  if has ("os2")       ||
-		   \ has ("win16")     ||
-		   \ has ("win32")     ||
-		   \ has ("win64")     ||
-		   \ has ("dos16")     ||
-		   \ has ("dos32")
-		     execute '!attrib +h "' . a:Path . '"'
-		  endif
+
+	       if has ("os2")       ||
+		\ has ("win16")     ||
+		\ has ("win32")     ||
+		\ has ("win64")     ||
+		\ has ("dos16")     ||
+		\ has ("dos32")
+		  execute '!attrib +h "' . a:Path . '"'
+	       endif
 	    endif
          endfunction Make_Backup_Dir
 
@@ -139,7 +140,8 @@ else
 endif
 
 "------------------------------------------------------------------------------
-"   Vim is Charityware - see ":help license" or uganda.txt for licence details.
+" Vim is Charityware - see ":help license" or uganda.txt for licence details.
 "-------------------------------------------------------------------------------
-" vim: textwidth=0 nowrap tabstop=8 shiftwidth=3 softtabstop=3 noexpandtab
-" vim: filetype=vim foldmethod=marker
+" vim: set textwidth=0 nowrap tabstop=8 shiftwidth=3 softtabstop=3 noexpandtab :
+" vim: set filetype=vim fileencoding=utf-8 fileformat=unix foldmethod=marker :
+" vim: set nospell spelllang=en :
